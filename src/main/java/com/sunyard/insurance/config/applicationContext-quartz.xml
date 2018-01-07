@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	
+	<!-- 删除临时文件夹JOB任务 -->
+	<bean name="delTempTask" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass"
+			value="com.sunyard.insurance.scheduler.job.DelTempFileJob" />
+	</bean>
+	<!-- 删除临时文件夹触发器 -->
+	<bean id="delTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="delTempTask" />
+		<!--  每天凌晨1点1分触发 -->
+		<property name="cronExpression" value="0 01 01 ? * *" />
+	</bean>
+	<!-- 处理推送失败批次JOB任务 -->
+	<bean name="errorPushJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass"
+			value="com.sunyard.insurance.scheduler.job.ErrorPushJob" />
+	</bean>
+	<!-- 处理推送失败批次触发器 -->
+	<bean id="errorPushTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="errorPushJob" />
+		<!--  每隔30分钟触发 -->
+		<property name="cronExpression" value="0 0/30 * * * ?" />
+	</bean>
+	<!-- 调度器  -->
+	<bean id="spingScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<!--  触发器列表 -->
+				<ref bean="delTrigger" />
+				<!--  默认不启用错误批次推送排程
+				<ref bean="errorPushTrigger" />
+				-->
+			</list>
+		</property>
+	</bean>
+
+</beans>

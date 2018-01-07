@@ -1,0 +1,27 @@
+用户校验
+
+CheckUser01   用户密码错误
+
+
+
+BatchStart01  批次版本号已经上传成功!
+
+
+
+TranceFile	  
+
+
+
+FileCheck
+
+
+
+BatchCheck01  批次存储失败!(本地缓存)
+BatchCheck02  批次存储失败!(缓存CM)
+BatchCheck03  批次存储失败!(缓存CE)
+
+
+BatchCheck04  批次版本号已经上传成功!
+
+
+

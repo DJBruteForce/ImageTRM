@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd">
+ <display-name>分页自定义标签</display-name>
+ <tlib-version>1.0</tlib-version>
+ <short-name>page</short-name>
+ <uri>/page-tags</uri>
+ <tag>
+  <name>pageInfo</name>
+  <tag-class>com.sunyard.insurance.component.page.PageInfo</tag-class>
+  <body-content>JSP</body-content>
+  <display-name>分页信息标签</display-name>
+  <attribute>
+   <name>styleClass</name>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+ </tag>
+ <tag>
+  <name>pageLink</name>
+  <tag-class>com.sunyard.insurance.component.page.PageLink</tag-class>
+  <body-content>JSP</body-content>
+  <display-name>分页跳转标签</display-name>
+  <attribute>
+   <name>action</name>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>styleClass</name>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>theme</name>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+ </tag>
+</taglib>

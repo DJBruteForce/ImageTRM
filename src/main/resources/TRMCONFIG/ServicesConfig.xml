@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<sydService>
+		<description>将SYD文件信息转换为BatchBean对象的实现类</description>
+		<!-- PICC版本:com.sunyard.insurance.util.Syd2BatchBeanImplByPicc -->
+		<!-- 基线版本:com.sunyard.insurance.util.Syd2BatchBeanImplByBase -->
+		<classname>com.sunyard.insurance.util.Syd2BatchBeanImplByPicc</classname>
+	</sydService>
+	<sydReaderService>
+		<description>将SYD文件解析实现类</description>
+		<!-- PICC版本:com.sunyard.insurance.util.SydFileReaderByPicc -->
+		<!-- 基线版本:com.sunyard.insurance.util.SydFileReaderByBase -->
+		<classname>com.sunyard.insurance.util.SydFileReaderByPicc</classname>
+	</sydReaderService>
+</root>

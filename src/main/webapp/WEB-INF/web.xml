@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<!-- 系统初始化 -->
+	<listener>
+		<listener-class>com.sunyard.insurance.common.ProjectStartListener</listener-class>
+	</listener>
+	
+	<servlet id="传输缓存服务器初始化">
+		<servlet-name>InitServer</servlet-name>
+		<servlet-class>com.sunyard.insurance.server.InitServer</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<!-- 来自SunECM的查询 -->
+	<servlet>
+		<description>查询批次</description>
+		<servlet-name>QueryServlet</servlet-name>
+		<servlet-class>com.sunyard.insurance.cmapi.servlet.QueryBatchServer</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>QueryServlet</servlet-name>
+		<url-pattern>/QueryServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description>http同步上传</description>
+		<servlet-name>HttpsProcess</servlet-name>
+		<servlet-class>com.sunyard.insurance.server.HttpsProcess</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HttpsProcess</servlet-name>
+		<url-pattern>/HttpsProcess</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description>判断批次在内容管理产品中是否存在</description>
+		<servlet-name>DoesBatchExistServer</servlet-name>
+		<servlet-class>com.sunyard.insurance.cmapi.servlet.DoesBatchExistServer</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoesBatchExistServer</servlet-name>
+		<url-pattern>/servlet/DoesBatchExistServer</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description>创建文件夹属性</description>
+		<servlet-name>CreateFolderPropertiesServlet</servlet-name>
+		<servlet-class>com.sunyard.insurance.filenet.ce.servlet.CreateFolderPropertiesServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CreateFolderPropertiesServlet</servlet-name>
+		<url-pattern>/servlet/CreateAttrServer</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description>创建文件夹类</description>
+		<servlet-name>CreateFolderClassServlet</servlet-name>
+		<servlet-class>com.sunyard.insurance.filenet.ce.servlet.CreateFolderClassServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CreateFolderClassServlet</servlet-name>
+		<url-pattern>/servlet/CreateItemServer</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description>删除文件夹类</description>
+		<servlet-name>DeleteFolderClassServlet</servlet-name>
+		<servlet-class>com.sunyard.insurance.filenet.ce.servlet.DeleteFolderClassServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteFolderClassServlet</servlet-name>
+		<url-pattern>/servlet/DelItemServer</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description>删除文件夹类属性</description>
+		<servlet-name>DeleteFolderPropertiesServlet</servlet-name>
+		<servlet-class>com.sunyard.insurance.filenet.ce.servlet.DeleteFolderPropertiesServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteFolderPropertiesServlet</servlet-name>
+		<url-pattern>/servlet/RemoveAttrServer</url-pattern>
+	</servlet-mapping>
+
+	<!-- 加载spring配置文件 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath*:com/sunyard/insurance/config/applicationContext-*.xml,
+		</param-value>
+	</context-param>
+	<!-- 配置Spring的监听器，解决乱码问题 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- 配置webservice开始 -->
+	<servlet>
+		<servlet-name>CXFService</servlet-name>
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CXFService</servlet-name>
+		<url-pattern>/webServices/*</url-pattern>
+	</servlet-mapping>
+	<!-- 配置webservice结束 -->
+
+	<!-- DWR的配置 -->
+	<servlet>
+		<servlet-name>dwr-invoker</servlet-name>
+		<servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>false</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dwr-invoker</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description>影像获取</description>
+		<servlet-name>GetImage</servlet-name>
+		<servlet-class>com.sunyard.insurance.server.GetImage</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetImage</servlet-name>
+		<url-pattern>/servlet/GetImage</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description>图片批注</description>
+		<servlet-name>AnnotationServlet</servlet-name>
+		<servlet-class>com.sunyard.insurance.server.AnnotationServlet</servlet-class>
+	</servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ServiceServlet</servlet-name>
+    <servlet-class>com.sunyard.insurance.server.ServiceServlet</servlet-class>
+  </servlet>
+
+	<servlet-mapping>
+		<servlet-name>AnnotationServlet</servlet-name>
+		<url-pattern>/servlet/AnnotationServlet</url-pattern>
+	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServiceServlet</servlet-name>
+    <url-pattern>/servlet/ServiceServlet</url-pattern>
+  </servlet-mapping>
+
+
+
+
+
+
+	<!--
+		用户是否登录过滤器 <filter> <filter-name>Online</filter-name>
+		<filter-class>com.sunyard.insurance.util.LoginFilter</filter-class>
+		</filter> <filter-mapping> <filter-name>Online</filter-name>
+		<url-pattern>/*</url-pattern> </filter-mapping>
+	-->
+
+	<!-- 配置struts2监听器 -->
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/struts/*</url-pattern>
+	</filter-mapping>
+
+	<!-- 配置Spring的监听 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- Spring 刷新Introspector防止内存泄露 -->
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+
+</web-app>

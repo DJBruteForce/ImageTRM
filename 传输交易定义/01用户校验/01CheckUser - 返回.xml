@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ROOT>
+	<SERVICECODE>CHECK_USER</SERVICECODE>
+	<RESOBJ>SunTRM</RESOBJ>
+	<!-- SUCCESS:成功  ERROR:失败 -->
+	<RESCODE>SUCCESS</RESCODE>
+	<!-- 用户校验成功/用户校验失败 -->
+	<RESMSG>用户校验成功</RESMSG>
+</ROOT>

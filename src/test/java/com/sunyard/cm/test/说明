@@ -1,0 +1,19 @@
+
+===请求==queryStr=<?xml version="1.0" encoding="UTF-8"?>
+<root><appCode>FK</appCode><attrs><attr attrCode="BATCH_ID" attrValue="557402d922f008e2999d020ecdc30292"/></attrs></root>
+===服务端返回===<results>
+  <resCode>1</resCode>
+  <result id="0">
+    <batchID>557402d922f008e2999d020ecdc30292</batchID>
+    <appCode>FK</appCode>
+    <busiNo></busiNo>
+    <xmlPath>http://127.0.0.1:8080/SunTRM/servlet/GetImage?filename=D:/sunyard/tempFile\CM_CACHE\20140611\5\5\557402d922f008e2999d020ecdc30292</xmlPath>
+    <batchVers>
+      <batchVer value="2"/>
+      <batchVer value="1"/>
+    </batchVers>
+    <innerVers>
+      <innerVer value="2"/>
+    </innerVers>
+  </result>
+</results>

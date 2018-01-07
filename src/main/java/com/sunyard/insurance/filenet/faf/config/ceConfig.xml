@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-engine>
+	<!-- 
+	<url>iiop://192.168.31.152:2809/FileNet/Engine</url>
+	-->
+	<url>http://192.168.220.88:9080/wsi/FNCEWS40MTOM/</url>
+	<domain>EDMUAT</domain>
+	<username>ceadmin</username>
+	<password>!234Qwer</password>
+	<object-store>OSDB</object-store>
+	<main-folder>/NEWFOLDER</main-folder>
+	<document-class>IMG_SRC_DOC</document-class>
+	
+	<!--  FileNet CE 
+	<url>http://192.168.5.130:9080/wsi/FNCEWS40MTOM/</url>
+	<domain>FileNetP8</domain>
+	<username>p8admin</username>
+	<password>Sunyard0</password>
+	<object-store>OS1</object-store>
+	<main-folder>/NewFolder</main-folder>
+	<document-class>IMG_SRC_DOC</document-class>
+	-->
+</content-engine>

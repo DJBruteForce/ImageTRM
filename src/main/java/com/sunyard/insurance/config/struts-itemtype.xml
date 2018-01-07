@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" 
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="ItemType" namespace="/struts/ItemTypeConfig" extends="struts-default">
+		<!-- CM建模 -->
+		<action name="createItem" method="createItem" class="com.sunyard.insurance.cmapi.action.ItemTypeProcessAction">
+		</action>
+		<action name="createAppAtrr" method="createAppAtrr" class="com.sunyard.insurance.cmapi.action.ItemTypeProcessAction">
+		</action>
+		<action name="createAtrr" method="createAtrr" class="com.sunyard.insurance.cmapi.action.ItemTypeProcessAction">
+		</action>
+		<action name="createInsAtrr" method="createInsAtrr" class="com.sunyard.insurance.cmapi.action.ItemTypeProcessAction">
+		</action>
+		<action name="delItemType" method="delItemType" class="com.sunyard.insurance.cmapi.action.ItemTypeProcessAction">
+		</action>
+		<action name="removeAttr" method="removeAttr" class="com.sunyard.insurance.cmapi.action.ItemTypeProcessAction">
+		</action>
+	</package>
+</struts>

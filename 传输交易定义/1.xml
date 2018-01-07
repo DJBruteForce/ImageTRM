@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<BASE_DATA>
+		<!-- 上传人ID -->
+		<USER_CODE>test</USER_CODE>
+		<!-- 上传人姓名 -->
+		<USER_NAME>张三</USER_NAME>
+		<!-- 业务所属分公司代码 -->
+		<ORG_CODE>9010100</ORG_CODE>
+		<!-- 上传人所属分公司代码，如上传人所属分公司和业务所属分公司不一致，此处需要传递成9010100 -->
+		<COM_CODE>9010100</COM_CODE>
+		<!-- 上传人所属分公司名称 -->
+		<ORG_NAME>太保总公司</ORG_NAME>
+		<!-- 使用的角色代码，具体值请与影像项目组约定 -->
+		<ROLE_CODE>cpic</ROLE_CODE>
+		<BIZ_INFO>
+			<BIZ_TYPE APP_CODE="CL_RYX" APP_NAME="人意险理赔"></BIZ_TYPE>
+		</BIZ_INFO>
+	</BASE_DATA>
+	<META_DATA>
+		<BATCH>
+			<APP_CODE>CL_RYX</APP_CODE>
+			<APP_NAME>人意险理赔</APP_NAME>
+			<!-- 报案号 -->
+			<BUSI_NO>C2014122900001</BUSI_NO>
+			<!-- 险种代码 -->
+			<INS_TYPE>109823</INS_TYPE>
+			<!-- 上传系统ID，健康险系统固定传递27 -->
+			<SYSTEM_ID>27</SYSTEM_ID>
+			<PAGES>
+				<!-- 
+					NODE--ACTION:固定传递ADD
+					NODE--ID传递要归类到的影像目录ID
+				 -->
+				<NODE ACTION="ADD" ID="JYCL0001">
+					<!-- 
+						FILE_NAME：文件夹中对应的影像文件名称
+						UP_USER：上传人ID
+						UP_USER_NAME：上传人姓名
+						UP_ORGNAME：上传人所属分公司名称
+						UP_TIME：文件上传时间
+						REMARK：文件备注信息,可为空
+					 -->
+					<PAGE FILE_NAME="1.jpg" UP_USER="test" UP_USER_NAME="张三"
+						UP_ORGNAME="济南分公司" UP_TIME="2014-09-01 20:58:13" REMARK="" />
+				</NODE>
+				<NODE ACTION="ADD" ID="JYCL0002">
+					<PAGE FILE_NAME="2.jpg" UP_USER="test" UP_USER_NAME="张三"
+						UP_ORGNAME="济南分公司" UP_TIME="2014-09-01 20:58:13" REMARK="" />
+				</NODE>
+				<NODE ACTION="ADD" ID="JYCL0003">
+					<PAGE FILE_NAME="3.jpg" UP_USER="test" UP_USER_NAME="张三"
+						UP_ORGNAME="济南分公司" UP_TIME="2014-09-01 20:58:13" REMARK="" />
+				</NODE>
+			</PAGES>
+		</BATCH>
+	</META_DATA>
+</root>

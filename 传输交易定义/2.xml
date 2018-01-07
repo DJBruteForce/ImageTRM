@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root>
+	<BASE_DATA>
+		<USER_CODE>test</USER_CODE>
+		<USER_NAME>张三</USER_NAME>
+		<ORG_CODE>9010100</ORG_CODE>
+		<COM_CODE>9010100</COM_CODE>
+		<ORG_NAME>太保总公司</ORG_NAME>
+		<ROLE_CODE>cpic</ROLE_CODE>
+		<BIZ_INFO>
+			<BIZ_TYPE APP_CODE='UWC' APP_NAME='车险承保' />
+		</BIZ_INFO>
+	</BASE_DATA>
+	<META_DATA>
+		<BATCH>
+			<APP_CODE>UWC</APP_CODE>
+			<APP_NAME>车险承保</APP_NAME>
+			<BUSI_NO>33100244678</BUSI_NO>					<!-- 险种大类 -->
+			<INS_TYPE />
+			<SYSTEM_ID>2</SYSTEM_ID>							<!-- 操作类型，1：集中作业 2：传统 -->
+			<OPERAT_TYPE>1</OPERAT_TYPE>
+			<CLASSIFY_LIMIT>2</CLASSIFY_LIMIT>
+		</BATCH>
+	</META_DATA>
+</root>
