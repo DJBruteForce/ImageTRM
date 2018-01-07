@@ -11,11 +11,11 @@ public class TranceFileBean implements Serializable {
 	private String BATCHID;
 	private String BATCHVER;
 	private String FILENAME;
-	private String FILESIZE;
+	private Long FILESIZE;
 	private String MD5STR;
 	
 	public TranceFileBean(String sERVICECODE, String rEQOBJ, String bATCHID,
-			String bATCHVER, String fILENAME, String fILESIZE, String mD5STR) {
+			String bATCHVER, String fILENAME, Long fILESIZE, String mD5STR) {
 		super();
 		SERVICECODE = sERVICECODE;
 		REQOBJ = rEQOBJ;
@@ -66,11 +66,11 @@ public class TranceFileBean implements Serializable {
 		FILENAME = fILENAME;
 	}
 
-	public String getFILESIZE() {
+	public Long getFILESIZE() {
 		return FILESIZE;
 	}
 
-	public void setFILESIZE(String fILESIZE) {
+	public void setFILESIZE(Long fILESIZE) {
 		FILESIZE = fILESIZE;
 	}
 

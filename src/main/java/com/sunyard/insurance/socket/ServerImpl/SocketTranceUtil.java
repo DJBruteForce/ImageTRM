@@ -100,7 +100,7 @@ public class SocketTranceUtil {
 		//先判断是否存在文件不存在
 		boolean flag = true;
 		File f = new File(batchTemPath);
-		if(f.listFiles().length<Integer.parseInt(batchCheckBean.getFILENUM())) {
+		if(f.listFiles().length<batchCheckBean.getFILENUM()) {
 			flag = false;
 			loger.error("传输平台|Socket|批次["+batchCheckBean.getBATCHID()+"]文件["+batchTemPath+"]接受数量校验不一致!");
 		}
@@ -236,15 +236,6 @@ public class SocketTranceUtil {
 		
 		return batchCheckResBean;
 		
-	}
-	
-	
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

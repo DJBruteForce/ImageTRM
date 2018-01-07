@@ -177,7 +177,7 @@ public class SocketServerImpl implements Runnable, Serializable {
 	public void recieveFile_bak(String rootPath,TranceFileBean tranceFileBean, TranceFileResBean tranceFileResBean) {
 		long startTime = System.currentTimeMillis();//RandomAccessFile
 		FileOutputStream fos = null;
-		long fileSize = Long.parseLong(tranceFileBean.getFILESIZE());
+		long fileSize = tranceFileBean.getFILESIZE();
 		File recieveFile = new File(rootPath+File.separator+tranceFileResBean.getFILENAME());
 		try {
 			//检查根目录文件夹是否存在
@@ -225,7 +225,7 @@ public class SocketServerImpl implements Runnable, Serializable {
 	public void recieveFile(String rootPath,TranceFileBean tranceFileBean, TranceFileResBean tranceFileResBean) {
 		long startTime = System.currentTimeMillis();//RandomAccessFile
 		RandomAccessFile raf = null;
-		long fileSize = Long.parseLong(tranceFileBean.getFILESIZE());
+		long fileSize = tranceFileBean.getFILESIZE();
 		File recieveFile = new File(rootPath+File.separator+tranceFileResBean.getFILENAME());
 		try {
 			//检查根目录文件夹是否存在
@@ -278,8 +278,9 @@ public class SocketServerImpl implements Runnable, Serializable {
 	
 	
 	public static void main(String[] args) {
+		ServerSocket serverListenSocket = null;
 		try {
-			ServerSocket serverListenSocket = null;
+			
 			ExecutorService pool = null;
 			serverListenSocket = new ServerSocket(8025);
 			serverListenSocket.setReuseAddress(true);
@@ -291,11 +292,15 @@ public class SocketServerImpl implements Runnable, Serializable {
 			}
 			
 		} catch (SocketException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			try {
+				serverListenSocket.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

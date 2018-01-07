@@ -1,6 +1,8 @@
 package com.sunyard.insurance.socket.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BatchCheckBean implements Serializable {
 
@@ -10,18 +12,28 @@ public class BatchCheckBean implements Serializable {
 	private String REQOBJ;
 	private String BATCHID;
 	private String BATCHVER;
-	private String FILENUM;
-
-	// private List<FileBean> FILES = new ArrayList<FileBean>();
+	private Integer FILENUM;
+	private List<FileBean> FILES = new ArrayList<FileBean>();
 	
 	public BatchCheckBean(String sERVICECODE, String rEQOBJ, String bATCHID,
-			String bATCHVER, String fILENUM) {
+			String bATCHVER, Integer fILENUM) {
 		super();
 		SERVICECODE = sERVICECODE;
 		REQOBJ = rEQOBJ;
 		BATCHID = bATCHID;
 		BATCHVER = bATCHVER;
 		FILENUM = fILENUM;
+	}
+	
+	public BatchCheckBean(String sERVICECODE, String rEQOBJ, String bATCHID,
+			String bATCHVER, Integer fILENUM, List<FileBean> FILES) {
+		super();
+		SERVICECODE = sERVICECODE;
+		REQOBJ = rEQOBJ;
+		BATCHID = bATCHID;
+		BATCHVER = bATCHVER;
+		FILENUM = fILENUM;
+		this.FILES = FILES;
 	}
 
 	public String getSERVICECODE() {
@@ -56,12 +68,20 @@ public class BatchCheckBean implements Serializable {
 		BATCHVER = bATCHVER;
 	}
 
-	public String getFILENUM() {
+	public Integer getFILENUM() {
 		return FILENUM;
 	}
 
-	public void setFILENUM(String fILENUM) {
+	public void setFILENUM(Integer fILENUM) {
 		FILENUM = fILENUM;
+	}
+
+	public List<FileBean> getFILES() {
+		return FILES;
+	}
+
+	public void setFILES(List<FileBean> fILES) {
+		FILES = fILES;
 	}
 
 }
